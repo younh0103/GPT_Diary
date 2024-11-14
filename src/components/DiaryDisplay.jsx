@@ -87,12 +87,10 @@ const DiaryDisplay = ({ data, isLoading }) => {
           GPT 조언
         </CardTitle>
         <CardContent>
-          {data.action_list.map((action, index) => (
+          {data?.action_list?.length > 0 ? (
+            data.action_list.map((action, index) => (
             <ActionListItem key={index}>{action}</ActionListItem>
-          ))}
-          {/* <ActionListItem>{data.action_list[0]}</ActionListItem>
-          <ActionListItem>{data.action_list[1]}</ActionListItem>
-          <ActionListItem>{data.action_list[2]}</ActionListItem> */}
+          ))): (<p></p>)}
         </CardContent>
       </CardContainer>
     </DiaryContainer>

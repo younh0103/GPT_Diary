@@ -7,7 +7,7 @@ const { TextArea } = Input;
 
 const DiaryInput = ({ isLoading, onSubmit, messageApi }) => {
     const [userInput, setUserInput] = useState("");
-    
+
     const handleUserInput = (e) => {
         setUserInput(e.target.value);
     }
@@ -18,13 +18,14 @@ const DiaryInput = ({ isLoading, onSubmit, messageApi }) => {
                 type: 'error',
                 content: '일과를 적어주세요.',
               });
+              return;
         }
         messageApi.open({
             type: 'success',
             content: '생성 요청 완료 !',
           });
         onSubmit(userInput);
-        setUserInput("");
+        setUserInput(null);
     }
 
     return (
